@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply antialiased;
+    }
+}
+
+/* Custom components */
+@layer components {
+    .skill-bar {
+        @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5;
+    }
+    .skill-progress {
+        @apply bg-blue-600 h-2.5 rounded-full;
+    }
+    .project-card {
+        @apply rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-700;
+    }
+    .project-image {
+        @apply w-full h-48 object-cover;
+    }
+    .project-content {
+        @apply p-6 bg-white dark:bg-gray-800;
+    }
+}
+
+/* Custom utilities */
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+}
+
+/* Dark mode transitions */
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* Mobile Menu Styles */
+#mobile-menu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#mobile-menu.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#mobile-menu-button .fa-bars {
+    transition: transform 0.3s ease;
+}
+
+#mobile-menu-button.active .fa-bars {
+    transform: rotate(90deg);
+}
+
+/* Form styles */
+input, textarea {
+    @apply transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+/* Dark mode styles */
+html.dark {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text */
+}
+
+html.dark body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* About and Contact sections dark mode */
+html.dark #about,
+html.dark #contact {
+    background-color: #1a1a1a; /* Slightly lighter than the main background */
+}
+
+/* Form input fields in dark mode */
+html.dark input,
+html.dark textarea {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-color: #404040;
+}
+
+html.dark input:focus,
+html.dark textarea:focus {
+    border-color: #3b82f6; /* Blue accent color */
+    outline: none;
+}
+
+/* Labels and text in dark mode */
+html.dark label,
+html.dark .text-gray-600 {
+    color: #e5e5e5;
+}
+
+/* Skill bars in dark mode */
+html.dark .skill-bar {
+    background-color: #2d2d2d;
+}
+
+html.dark .skill-progress {
+    background-color: #3b82f6;
+}
+
+/* Project cards in dark mode */
+html.dark .project-card {
+    background-color: #1f1f1f;
+    border-color: #2d2d2d;
+}
+
+/* Optional: Adjust other elements for dark mode */
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Add transition for smooth theme switching */
+html, body,
+#about,
+#contact,
+input,
+textarea,
+.project-card {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
